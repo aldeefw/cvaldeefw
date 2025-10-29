@@ -199,28 +199,12 @@
         }
         
         /* Detail Dokumentasi Styling */
-        #documentation-detail-view {
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        /* Warna untuk pesan dokumentasi tidak tersedia */
+        .doc-unavailable {
+            border: 2px dashed #e74c3c; /* Merah */
+            background-color: #fceae8; /* Background merah muda */
         }
-
-        .back-button {
-            background-color: #95a5a6;
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            cursor: pointer;
-            margin-bottom: 20px;
-            transition: background-color 0.3s;
-        }
-
-        .back-button:hover {
-            background-color: #7f8c8d;
-        }
-
+        
         .doc-placeholder {
             border: 2px dashed #3498db;
             padding: 20px;
@@ -349,30 +333,47 @@
 
     <!-- KONTEN TAB -->
 
-    <!-- Tab: Riwayat Pendidikan Formal -->
+    <!-- Tab: Riwayat Pendidikan Formal (Saat ini tanpa data-doc-src, akan menampilkan 'Belum Tersedia') -->
     <div id="PendidikanFormal" class="tab-content active">
         <h3>RIWAYAT PENDIDIKAN FORMAL</h3>
         <ul>
+            <!-- Contoh 1: Belum ada tautan dokumentasi (Data dipertahankan kosong) -->
             <li class="doc-link-item" data-title="SDT Bina Ilmu (SD/Sederajat)" onclick="showDocumentationDetail(this)">SDT Bina Ilmu (SD/Sederajat)</li>
-            <li class="doc-link-item" data-title="SMP IT Daarul Rahman (SMP/Sederajat)" onclick="showDocumentationDetail(this)">SMP IT Daarul Rahman (SMP/Sederajat)</li>
-            <li class="doc-link-item" data-title="SMA IT Daarul Rahman (SMA/Sederajat)" onclick="showDocumentationDetail(this)">SMA IT Daarul Rahman (SMA/Sederajat)</li>
+            
+            <!-- Contoh 2: Tautan sudah ditambahkan di sini (Ganti dengan URL Imgur Anda) -->
+            <li class="doc-link-item" 
+                data-title="SMP IT Daarul Rahman (SMP/Sederajat)" 
+                data-doc-src="https://i.imgur.com/contoh-ijazah-smp.jpg" 
+                onclick="showDocumentationDetail(this)">
+                SMP IT Daarul Rahman (SMP/Sederajat)
+            </li>
+            
+            <!-- Contoh 3: Tautan sudah ditambahkan di sini (Ganti dengan URL Imgur Anda) -->
+            <li class="doc-link-item" 
+                data-title="SMA IT Daarul Rahman (SMA/Sederajat)" 
+                data-doc-src="https://i.imgur.com/contoh-ijazah-sma.jpg" 
+                onclick="showDocumentationDetail(this)">
+                SMA IT Daarul Rahman (SMA/Sederajat)
+            </li>
+            
+            <!-- Contoh 4: Belum ada tautan dokumentasi (Data dipertahankan kosong) -->
             <li class="doc-link-item" data-title="Pendidikan Agama Islam UIN Salatiga (Perguruan Tinggi)" onclick="showDocumentationDetail(this)">Pendidikan Agama Islam UIN Salatiga (Perguruan Tinggi)</li>
         </ul>
     </div>
 
-    <!-- Tab: Riwayat Pendidikan Non-Formal (List items are now clickable) -->
+    <!-- Tab: Riwayat Pendidikan Non-Formal (Menggunakan data-doc-src) -->
     <div id="PendidikanNonFormal" class="tab-content">
         <h3>RIWAYAT PENDIDIKAN NON-FORMAL</h3>
         <ul>
             <li class="doc-link-item" data-title="Kuliah Tamu PAI UIN Salatiga: Pendidikan Islam Studi Literatur Indonesia dan Timur Tengah (2023)" onclick="showDocumentationDetail(this)">Kuliah Tamu PAI UIN Salatiga “Pendidikan Islam Studi Literatur Indonesia dan Timur Tengah” 2023</li>
-            <li class="doc-link-item" data-title="Diskusi Fiqh Wanita Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (2023)" onclick="showDocumentationDetail(this)">Diskusi Fiqh Wanita Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga “Urgensi Pemahaman Fiqh Wanita untuk Kemaslahatan Bersama” 2023</li>
+            <li class="doc-link-item" data-title="Diskusi Fiqh Wanita Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (2023)" data-doc-src="https://imgur.com/FvWe3Zr" onclick="showDocumentationDetail(this)">Diskusi Fiqh Wanita Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga “Urgensi Pemahaman Fiqh Wanita untuk Kemaslahatan Bersama” 2023</li>
             <li class="doc-link-item" data-title="Seminar Nasional: Science Learning Innovation, HMPS TIPA UIN Salatiga (2023)" onclick="showDocumentationDetail(this)">Seminar Nasional: Science Learning Innovation, HMPS TIPA UIN Salatiga 2023, “Peran Gen Z sebagai Agen Perubahan dalam Pembangunan Berkelanjutan melalui Kecakapan Intelektual, Kreativitas, dan Inovasi” 2023</li>
             <li class="doc-link-item" data-title="Seminar Nasional Prodi PAI UIN Salatiga: Implementasi Pembelajaran PAI Bagi Anak Berkebutuhan Khusus" onclick="showDocumentationDetail(this)">Seminar Nasional Prodi PAI UIN Salatiga “Implementasi Pembelajaran PAI Bagi Anak Berkebutuhan Khusus” (Tahun Tidak Tersedia)</li>
-            <li class="doc-link-item" data-title="Pelatihan Design MAD Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Pelatihan Design MAD Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga 2024</li>
-            <li class="doc-link-item" data-title="Seminar Nasional Edupreunership HMPS PAI IAIN Kudus (2024)" onclick="showDocumentationDetail(this)">Seminar Nasional Edupreunership HMPS PAI IAIN Kudus “Gusjigang sebagai Inspirasi: Mengembangkan Jiwa Kewirausahaan di Era Modern” 2024</li>
+            <li class="doc-link-item" data-title="Pelatihan Design MAD Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (2024)" data-doc-src="https://imgur.com/ff3s6jP" onclick="showDocumentationDetail(this)">Pelatihan Design MAD Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga 2024</li>
+            <li class="doc-link-item" data-title="Seminar Nasional Edupreunership HMPS PAI IAIN Kudus (2024)" data-doc-src="https://imgur.com/hywlw16" onclick="showDocumentationDetail(this)">Seminar Nasional Edupreunership HMPS PAI IAIN Kudus “Gusjigang sebagai Inspirasi: Mengembangkan Jiwa Kewirausahaan di Era Modern” 2024</li>
             <li class="doc-link-item" data-title="Latihan Keterampilan Manajemen Dasar Organisasi DEMA FTIK UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Latihan Keterampilan Manajemen Dasar Organisasi DEMA FTIK UIN Salatiga “Optimalisasi Jiwa Kepemimpinan, Kepedulian, dan Pola Pikir Kritis ORMAWA Guna Menuju Mahasiswa yang Berintegritas dan Bertanggungjawab” 2024</li>
             <li class="doc-link-item" data-title="KPU Goes to Campus, KPU Kota Salatiga (2024)" onclick="showDocumentationDetail(this)">KPU Goes to Campus, KPU Kota Salatiga, “Demokrasi dan Pemilu di Indonesia ’Refleksi dan Proyeksi Menyongsong Pilkada Serentak Tahun 2024” 2024</li>
-            <li class="doc-link-item" data-title="Pendampingan Pengembangan Kompetensi Guru PAI Prodi PAI UIN Salatiiga (2024)" onclick="showDocumentationDetail(this)">Pendampingan Pengembangan Kompetensi Guru PAI Prodi PAI UIN Salatiiga 2024</li>
+            <li class="doc-link-item" data-title="Pendampingan Pengembangan Kompetensi Guru PAI Prodi PAI UIN Salatiiga (2024)" data-doc-src="https://imgur.com/UGm0wok" onclick="showDocumentationDetail(this)">Pendampingan Pengembangan Kompetensi Guru PAI Prodi PAI UIN Salatiiga 2024</li>
             <li class="doc-link-item" data-title="Seminar Nasional Pendidikan dan Budaya, DEMA FTIK UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Seminar Nasional Pendidikan dan Budaya, DEMA FTIK UIN Salatiga “Membangun Kearifan Lokal dan Memahami Warisan Budaya Melalui Paradigma Wasathiyah dalam Pendidikan di Era Modern” 2024</li>
             <li class="doc-link-item" data-title="Pelatihan Microteaching HMPS PAI UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Pelatihan Microteaching HMPS PAI UIN Salatiga 2024</li>
             <li class="doc-link-item" data-title="Pelatihan Pengolahan Data Penelitian, Prodi PAI UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Pelatihan Pengolahan Data Penelitian, Prodi PAI UIN Salatiga 2024</li>
@@ -380,7 +381,7 @@
         </ul>
     </div>
 
-    <!-- Tab: Pengalaman Organisasi (List items are now clickable) -->
+    <!-- Tab: Pengalaman Organisasi -->
     <div id="Organisasi" class="tab-content">
         <h3>PENGALAMAN ORGANISASI</h3>
         <ul>
@@ -396,22 +397,22 @@
         </ul>
     </div>
 
-    <!-- Tab: Kepanitiaan (List items are now clickable) -->
+    <!-- Tab: Kepanitiaan -->
     <div id="Kepanitiaan" class="tab-content">
         <h3>KEPANITIAAN</h3>
         <ul>
             <li class="doc-link-item" data-title="Penginapan PBAK Rayon MAD (2023)" onclick="showDocumentationDetail(this)">Penginapan PBAK Rayon MAD (Anggota Bagian Seksi Dekorasi dan Dokumentasi), 2023</li>
             <li class="doc-link-item" data-title="PBAK Prodi PAI UIN Salatiga (2023)" onclick="showDocumentationDetail(this)">PBAK Prodi PAI UIN Salatiga (Anggota Seksi Acara), 2023</li>
             <li class="doc-link-item" data-title="Masa Penerimaan Anggota Baru Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (2023)" onclick="showDocumentationDetail(this)">Masa Penerimaan Anggota Baru Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (Koordinator Seksi Dekorasi dan Dokumentasi), 2023</li>
-            <li class="doc-link-item" data-title="PAI Mengajar HMPS PAI UIN Salatiga (2023)" onclick="showDocumentationDetail(this)">PAI Mengajar HMPS PAI UIN Salatiga (Volunteer), 2023</li>
-            <li class="doc-link-item" data-title="Festival PAI UIN Salatiga (Ketua Panitia, 2023)" onclick="showDocumentationDetail(this)">Festival PAI UIN Salatiga (Ketua Panitia), 2023</li>
-            <li class="doc-link-item" data-title="Sekolah Politik Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (Ketua Panitia, 2023)" onclick="showDocumentationDetail(this)">Sekolah Politik Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (Ketua Panitia), 2023</li>
+            <li class="doc-link-item" data-title="PAI Mengajar HMPS PAI UIN Salatiga (2023)" data-doc-src="https://imgur.com/0O4VMnI" onclick="showDocumentationDetail(this)">PAI Mengajar HMPS PAI UIN Salatiga (Volunteer), 2023</li>
+            <li class="doc-link-item" data-title="Festival PAI UIN Salatiga (Ketua Panitia, 2023)" data-doc-src="https://imgur.com/2oLEhQo" onclick="showDocumentationDetail(this)">Festival PAI UIN Salatiga (Ketua Panitia), 2023</li>
+            <li class="doc-link-item" data-title="Sekolah Politik Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (Ketua Panitia, 2023)" data-doc-src="https://imgur.com/66zw0mK" onclick="showDocumentationDetail(this)">Sekolah Politik Rayon Matori Abdul Djalil PMII FTIK UIN Salatiga (Ketua Panitia), 2023</li>
             <li class="doc-link-item" data-title="PBAK FTIK UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">PBAK FTIK UIN Salatiga (Anggota Seksi Publikasi, Dekorasi, dan Dokumentasi), 2024</li>
             <li class="doc-link-item" data-title="PBAK FTIK UIN Salatiga (Ketua Panitia, 2025)" onclick="showDocumentationDetail(this)">PBAK FTIK UIN Salatiga (Ketua Panitia), 2025</li>
         </ul>
     </div>
 
-    <!-- Tab: Riwayat Pendidikan Non-Formal Ke-NU-an (List items are now clickable) -->
+    <!-- Tab: Riwayat Pendidikan Non-Formal Ke-NU-an -->
     <div id="KeNUan" class="tab-content">
         <h3>RIWAYAT PENDIDIKAN NON-FORMAL KE-NU-AN</h3>
         <ul>
@@ -451,16 +452,23 @@
         <h1 class="text-3xl text-center font-bold text-gray-800">Dokumentasi</h1>
         <h2 id="doc-title" class="text-xl text-center font-semibold text-indigo-600 mb-6"></h2>
 
-        <div class="doc-placeholder">
-            <p class="text-gray-600 mb-3 font-semibold">Ganti teks di bawah ini dengan URL Gambar/Sertifikat Dokumentasi Anda:</p>
+        <!-- 1. Container untuk Pesan Dokumentasi Belum Tersedia -->
+        <div id="doc-unavailable-message" class="hidden doc-placeholder doc-unavailable">
+            <p class="text-red-700 font-bold text-lg">⚠️ Dokumentasi Belum Tersedia</p>
+            <!-- Kalimat penjelasan di bawah ini telah dihapus sesuai permintaan -->
+        </div>
+        
+        <!-- 2. Container untuk Input dan Tampilan Dokumentasi (Link Tersedia) -->
+        <div id="doc-input-container" class="doc-placeholder">
+            <p class="text-gray-600 mb-3 font-semibold">Masukkan atau periksa URL Gambar/Sertifikat Dokumentasi Anda:</p>
             <textarea id="src-input" class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 mb-4" rows="2" placeholder="Masukkan URL gambar dokumentasi Anda di sini (misal: https://imgur.com/link_sertifikat.jpg)"></textarea>
             
             <button class="bg-blue-500 text-white p-2 rounded-md hover:bg-blue-600" onclick="updateDocumentationImage()">Tampilkan Dokumentasi</button>
             
             <div class="mt-5">
                 <img id="doc-image" src="" alt="Dokumentasi Acara/Sertifikat" class="hidden mx-auto border shadow-md">
-                <p id="image-error" class="text-red-500 mt-2 hidden">URL gambar tidak valid atau kosong.</p>
-                <p id="no-image-text" class="text-gray-500 mt-2">*(Silakan masukkan URL gambar di atas untuk melihat dokumentasi)*</p>
+                <p id="image-error" class="text-red-500 mt-2 hidden">URL gambar tidak valid atau gagal dimuat.</p>
+                <p id="no-image-text" class="text-gray-500 mt-2">*(Silakan masukkan URL gambar di atas, atau klik Tampilkan Dokumentasi)*</p>
             </div>
         </div>
     </div>
@@ -491,26 +499,43 @@
     // Fungsi untuk menampilkan halaman detail dokumentasi
     function showDocumentationDetail(element) {
         const title = element.getAttribute('data-title');
+        // Ambil URL dokumentasi yang sudah disimpan (jika ada)
+        const docSrc = element.getAttribute('data-doc-src') || ''; 
+
         const mainView = document.getElementById('main-cv-view');
         const detailView = document.getElementById('documentation-detail-view');
         const docTitle = document.getElementById('doc-title');
         const srcInput = document.getElementById('src-input');
+        const docInputContainer = document.getElementById('doc-input-container');
+        const docUnavailableMessage = document.getElementById('doc-unavailable-message');
         
-        // Atur Judul dan Teks Placeholder
+        // Atur Judul dan Tampilkan/Sembunyikan View
         docTitle.textContent = title;
-        
-        // Sembunyikan Main View, Tampilkan Detail View
         mainView.classList.remove('page-view');
         mainView.classList.add('hidden-view');
         detailView.classList.remove('hidden-view');
         detailView.classList.add('page-view');
         
-        // Kosongkan dan set placeholder SRC
-        srcInput.value = '';
+        // Clear previous state
         document.getElementById('doc-image').src = '';
         document.getElementById('doc-image').classList.add('hidden');
         document.getElementById('image-error').classList.add('hidden');
-        document.getElementById('no-image-text').classList.remove('hidden');
+        document.getElementById('no-image-text').classList.add('hidden'); // Sembunyikan pesan default
+
+        // LOGIKA BARU UNTUK DOKUMENTASI
+        if (docSrc) {
+            // KASUS 1: Link Dokumentasi Tersedia
+            docInputContainer.style.display = 'block';
+            docUnavailableMessage.classList.add('hidden');
+            srcInput.value = docSrc;
+            
+            // Panggil fungsi untuk memuat gambar secara otomatis
+            updateDocumentationImage(); 
+        } else {
+            // KASUS 2: Link Dokumentasi Belum Tersedia
+            docInputContainer.style.display = 'none';
+            docUnavailableMessage.classList.remove('hidden');
+        }
 
         window.scrollTo(0, 0); // Gulir ke atas halaman
     }
