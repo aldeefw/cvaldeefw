@@ -345,7 +345,7 @@
                 <tr><td>Alamat Domisili</td><td>: Jl. Canden Kutowinangun Lor, Kecamatan Tingkir, Kota Salatiga</td></tr>
                 <tr><td>No WA</td><td>: 081804246416</td></tr>
                 <tr><td>E-Mail</td><td>: vivaldeewiedjaya@gmail.com</td></tr>
-                <tr><td>Skill/Hobi</td><td>: Membaca</td></tr>
+                <!-- BARIS SKILL/HOBI TELAH DIHAPUS SESUAI PERMINTAAN USER -->
                 <tr><td>Motto Hidup</td><td>: Hidup Bermanfaat</td></tr>
             </table>
         </div>
@@ -560,6 +560,10 @@
         detailView.classList.remove('hidden-view');
         detailView.classList.add('page-view');
         
+        // ** PERBAIKAN NAVIGASI: PUSH STATE **
+        // Tambahkan entri ke riwayat browser, tandai sebagai tampilan detail
+        history.pushState({ view: 'detail', title: title }, title, '#detail');
+
         // Reset src gambar dan sembunyikan error
         docImage.src = '';
         
@@ -588,17 +592,33 @@
 
     // Fungsi untuk menampilkan kembali halaman utama CV
     function showMainView() {
+        // ** PERBAIKAN NAVIGASI: HISTORY BACK **
+        // Saat tombol "Kembali" diklik, gunakan history.back(). 
+        // Ini akan memicu event 'popstate' yang telah kita atur di bawah.
+        history.back();
+    }
+    
+    // ** PERBAIKAN NAVIGASI: POPSTATE HANDLER **
+    // Dengarkan saat tombol kembali perangkat/browser ditekan
+    window.onpopstate = function(event) {
         const mainView = document.getElementById('main-cv-view');
         const detailView = document.getElementById('documentation-detail-view');
         
-        detailView.classList.remove('page-view');
-        detailView.classList.add('hidden-view');
-        mainView.classList.remove('hidden-view');
-        mainView.classList.add('page-view');
+        // Cek apakah hash URL saat ini sudah hilang atau bukan lagi '#detail'
+        if (document.location.hash !== '#detail' || event.state?.view !== 'detail') {
+            // Jika kita kembali ke state sebelumnya (halaman utama)
+            
+            // Pastikan kita benar-benar di tampilan detail sebelum beralih untuk menghindari flicker
+            if (!detailView.classList.contains('hidden-view')) {
+                detailView.classList.remove('page-view');
+                detailView.classList.add('hidden-view');
+                mainView.classList.remove('hidden-view');
+                mainView.classList.add('page-view');
+                window.scrollTo(0, 0); // Gulir ke atas halaman
+            }
+        }
+    };
 
-        window.scrollTo(0, 0); // Gulir ke atas halaman
-    }
-    
     // Secara default buka tab pertama saat halaman dimuat
     document.addEventListener("DOMContentLoaded", function() {
         const firstTabButton = document.querySelector(".tab-button");
