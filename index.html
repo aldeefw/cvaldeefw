@@ -54,7 +54,21 @@
             object-fit: cover;
             border: 3px solid #3498db;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            /* Pastikan gambar muncul sebagai blok */
+            display: block; 
         }
+        
+        /* Tambahkan style untuk placeholder agar terlihat sebagai kotak, bukan teks */
+        .profile-photo[src^="uploaded:"] ~ .biodata-details:before {
+            content: "";
+            display: block;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: #ccc;
+            margin-bottom: 20px;
+        }
+
 
         .biodata-details {
             flex-grow: 1;
@@ -189,7 +203,6 @@
             margin-left: auto;
             margin-top: 10px;
             margin-bottom: 5px;
-            /* Tambahkan fallbacks jika gambar tidak dimuat */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
             padding: 5px;
         }
@@ -232,12 +245,12 @@
 
     <!-- BIODATA DIRI DAN FOTO -->
     <div class="biodata-section">
-        <!-- Foto Profil menggunakan file yang diunggah -->
+        <!-- FOTO PROFIL ANDA -->
         <img 
             src="uploaded:image_219f7f.png-f8c84540-0127-40e1-9ef0-ecd1d64858df" 
             alt="Foto Profil Alditya Fariz Wijaya" 
             class="profile-photo"
-            onerror="this.onerror=null; this.src='https://placehold.co/150x150/3498db/ffffff?text=FOTO+ANDA';"
+            onerror="this.onerror=null; this.src='https://placehold.co/150x150/999999/ffffff?text=FOTO';" 
         >
         <div class="biodata-details">
             <h2>BIODATA DIRI</h2>
@@ -302,8 +315,7 @@
         <h3>PENGALAMAN ORGANISASI</h3>
         <ul>
             <li>Ambalan Muhammad Al Fatih Daarul Rahman 3 (Jabatan: Dewan Bagian Keilmuan), 2019-2020</li>
-            <li>Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (Jabatan: Wakil Ketua), 2019-2020</li>
-            <li>Haflatul Wada 2021 Pondok Pesantren Daarul Rahman 3 (Jabatan: Ketua Bagian Dekorasi), 2020-2021</li>
+            <li>Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (Jabatan: Wakil Ketua), 2asi), 2020-2021</li>
             <li>Majelis Guru Daarul Rahman 1 (Jabatan: Koordinator Bagian Sekretaris), 2021-2022</li>
             <li>HMPS PAI (Jabatan: Anggota Pengurus Bagian Bakat dan Minat), 2023</li>
             <li>Rayon Matori Abdul Djalil PMII UIN Salatiga (Jabatan: Anggota Pengurus Divisi HKOG), 2023-2024</li>
@@ -349,7 +361,7 @@
     <!-- Tanda Tangan -->
     <div class="signature-section">
         <p>Salatiga, 29 Oktober 2025</p>
-        <!-- Tanda Tangan menggunakan file yang diunggah -->
+        <!-- TANDA TANGAN ANDA -->
         <img 
             src="uploaded:image_219f9e.png-cf00ebf7-2722-44e4-a46c-99c280282cdf" 
             alt="Tanda Tangan Alditya Fariz Wijaya" 
@@ -397,3 +409,4 @@
 
 </body>
 </html>
+
