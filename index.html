@@ -173,7 +173,6 @@
             cursor: pointer;
             padding: 8px;
             margin: 5px 0;
-            /* Hapus list-style-type: disc; untuk mengatasi bullet ganda */
             border-radius: 4px;
             transition: background-color 0.2s;
         }
@@ -228,13 +227,32 @@
 
         .doc-preview-container img {
             max-width: 100%; /* Gambar tidak akan melebihi lebar kontainer */
-            height: auto;     /* Tinggi akan menyesuaikan agar proporsi terjaga */
+            height: auto;      /* Tinggi akan menyesuaikan agar proporsi terjaga */
             border-radius: 4px;
-            display: block;   /* Menjadikan gambar blok agar margin auto bekerja */
-            margin: 0 auto;   /* Pusatkan gambar secara horizontal */
+            display: block;    /* Menjadikan gambar blok agar margin auto bekerja */
+            margin: 0 auto;    /* Pusatkan gambar secara horizontal */
             box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Tambahkan sedikit bayangan */
             border: 1px solid #e0e6ed; /* Border ringan */
         }
+        
+        /* ** FIX/ADD: Styling Baru untuk Dokumentasi Detail View ** */
+        
+        /* Styling for doc title in the detail view (replacing Tailwind-like classes) */
+        #documentation-detail-view h2#doc-title {
+            font-size: 1.5em; /* text-xl/text-2xl equivalent */
+            text-align: center;
+            font-weight: 600; /* font-semibold */
+            color: #3498db; /* indigo-600 equivalent */
+            margin-bottom: 24px; /* mb-6 */
+        }
+
+        /* Styling for doc unavailable message content (replacing Tailwind-like classes) */
+        .doc-unavailable p {
+            color: #e74c3c; /* text-red-700 equivalent */
+            font-weight: 700; /* font-bold */
+            font-size: 1.125em; /* text-lg equivalent */
+        }
+        /* ** END FIX/ADD ** */
         
         /* Styling untuk Tanda Tangan */
         .signature-section {
@@ -254,7 +272,6 @@
             margin-left: auto;
             margin-top: 10px;
             margin-bottom: 5px;
-            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); */ /* HAPUS BAYANGAN INI */
             padding: 5px;
         }
 
@@ -384,11 +401,14 @@
 <!-- Load Font Awesome untuk Ikon -->
 <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 
-<!-- Main View: CV Utama (Active by default) --><div id="main-cv-view" class="page-view cv-container">
+<!-- Main View: CV Utama (Active by default) -->
+<div id="main-cv-view" class="page-view cv-container">
     <h1>CURRICULUM VITAE</h1>
 
-    <!-- BIODATA DIRI DAN FOTO --><div class="biodata-section">
-        <!-- FOTO PROFIL ANDA --><img 
+    <!-- BIODATA DIRI DAN FOTO -->
+    <div class="biodata-section">
+        <!-- FOTO PROFIL ANDA -->
+        <img 
             src="https://i.imgur.com/Wm2dDEN.png" 
             alt="Foto Profil Alditya Fariz Wijaya" 
             class="profile-photo"
@@ -403,7 +423,7 @@
                 <tr><td>Alamat Domisili</td><td>: Jl. Canden Kutowinangun Lor, Kecamatan Tingkir, Kota Salatiga</td></tr>
                 <tr><td>No WA</td><td>: 081804246416</td></tr>
                 <tr><td>E-Mail</td><td>: vivaldeewiedjaya@gmail.com</td></tr>
-                <!-- BARIS SKILL/HOBI TELAH DIHAPUS SESUAI PERMINTAAN USER --><tr><td>Motto Hidup</td><td>: Hidup Bermanfaat</td></tr>
+                <tr><td>Motto Hidup</td><td>: Hidup Bermanfaat</td></tr>
             </table>
         </div>
     </div>
@@ -413,6 +433,9 @@
         <button class="tab-button active" onclick="openTab(event, 'PendidikanFormal')">Pendidikan Formal</button>
         <button class="tab-button" onclick="openTab(event, 'PendidikanNonFormal')">Pendidikan Non-Formal</button>
         <button class="tab-button" onclick="openTab(event, 'PengalamanKerja')">Pengalaman Kerja</button>
+        <!-- TOMBOL TAB BARU: PEMBICARA & PELATIHAN -->
+        <button class="tab-button" onclick="openTab(event, 'Pembicara')">Pembicara & Pelatihan</button>
+        <!-- AKHIR TOMBOL TAB BARU -->
         <button class="tab-button" onclick="openTab(event, 'Organisasi')">Organisasi</button>
         <button class="tab-button" onclick="openTab(event, 'Kepanitiaan')">Kepanitiaan</button>
         <button class="tab-button" onclick="openTab(event, 'Perlombaan')">Perlombaan</button>
@@ -495,7 +518,7 @@
         </ul>
     </div>
     
-    <!-- Tab: Pengalaman Kerja (Baru ditambahkan) -->
+    <!-- Tab: Pengalaman Kerja -->
     <div id="PengalamanKerja" class="tab-content">
         <h3>PENGALAMAN KERJA</h3>
         <ul>
@@ -503,12 +526,23 @@
         </ul>
     </div>
 
+    <!-- Tab BARU: Pembicara & Pelatihan -->
+    <div id="Pembicara" class="tab-content">
+        <h3>PENGALAMAN PEMBICARA & PELATIHAN</h3>
+        <ul>
+            <li class="doc-link-item" data-title="Pembicara PAI Gathering UIN Salatiga (2024)" onclick="showDocumentationDetail(this)">Pembicara di PAI Gathering UIN Salatiga 2024</li>
+            <li class="doc-link-item" data-title="Pembicara Pesantren Kilat SMA Nusapersada Salatiga (2025)" onclick="showDocumentationDetail(this)">Pembicara di Pesantren Kilat SMA Nusapersada Salatiga 2025</li>
+            <li class="doc-link-item" data-title="Pelatih Tadrib 'ala Mahaarat al-Kitabah bil'Arabiyyah (2025)" onclick="showDocumentationDetail(this)">Pelatih di acara Tadrib 'ala Mahaarat al-Kitabah bil'Arabiyyah MBKM UIN Salatiga di SMA IT Nurul Islam Tengaran 2025</li>
+        </ul>
+    </div>
+    <!-- Akhir Tab BARU -->
+
     <!-- Tab: Pengalaman Organisasi (Tidak ada link baru) -->
     <div id="Organisasi" class="tab-content">
         <h3>PENGALAMAN ORGANISASI</h3>
         <ul>
             <li class="doc-link-item" data-title="Ambalan Muhammad Al Fatih Daarul Rahman 3 (2019-2020)" onclick="showDocumentationDetail(this)">Ambalan Muhammad Al Fatih Daarul Rahman 3 (Jabatan: Dewan Bagian Keilmuan), 2019-2020</li>
-            <li class="doc-link-item" data-title="Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (2020-2021)" onclick="showDocumentationDetail(this)">Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (Jabatan: Wakil Ketua), 2asi), 2020-2021</li>
+            <li class="doc-link-item" data-title="Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (2020-2021)" onclick="showDocumentationDetail(this)">Bagian Bahasa Pondok Pesantren Daarul Rahman 3 (Jabatan: Wakil Ketua), 2020-2021</li>
             <li class="doc-link-item" data-title="Majelis Guru Daarul Rahman 1 (2021-2022)" onclick="showDocumentationDetail(this)">Majelis Guru Daarul Rahman 1 (Jabatan: Koordinator Bagian Sekretaris), 2021-2022</li>
             <li class="doc-link-item" data-title="HMPS PAI (2023)" onclick="showDocumentationDetail(this)">HMPS PAI (Jabatan: Anggota Pengurus Bagian Bakat dan Minat), 2023</li>
             <li class="doc-link-item" data-title="Rayon Matori Abdul Djalil PMII UIN Salatiga (2023-2024)" onclick="showDocumentationDetail(this)">Rayon Matori Abdul Djalil PMII UIN Salatiga (Jabatan: Anggota Pengurus Divisi HKOG), 2023-2024</li>
@@ -555,9 +589,11 @@
         <p>*(Saat ini belum ada data perlombaan)*</p>
     </div>
 
-    <!-- Tanda Tangan --><div class="signature-section">
+    <!-- Tanda Tangan -->
+    <div class="signature-section">
         <p>Salatiga, 29 Oktober 2025</p>
-        <!-- TANDA TANGAN ANDA --><img 
+        <!-- TANDA TANGAN ANDA -->
+        <img 
             src="https://i.imgur.com/vgWEwlj.png" 
             alt="Tanda Tangan Alditya Fariz Wijaya" 
             class="signature-image"
@@ -566,7 +602,8 @@
         <p>(Alditya Fariz Wijaya)</p>
     </div>
     
-    <!-- Bagian Kontak Cepat (BARU DITAMBAHKAN) --><div class="contact-section">
+    <!-- Bagian Kontak Cepat -->
+    <div class="contact-section">
         <a href="https://wa.me/081804246416" target="_blank" class="contact-button whatsapp">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
             Hubungi via WhatsApp
@@ -579,20 +616,25 @@
 
 </div>
 
-<!-- Documentation Detail View (Hidden by default) --><div id="documentation-detail-view" class="page-view hidden-view">
+<!-- Documentation Detail View (Hidden by default) -->
+<div id="documentation-detail-view" class="page-view hidden-view">
     <button class="back-button" onclick="showMainView()">&#x2190; Kembali ke CV Utama</button>
     
     <div class="cv-container">
         <h1 class="text-3xl text-center font-bold text-gray-800">Dokumentasi</h1>
         <h2 id="doc-title" class="text-xl text-center font-semibold text-indigo-600 mb-6"></h2>
 
-        <!-- 1. Container untuk Pesan Dokumentasi Belum Tersedia --><div id="doc-unavailable-message" class="hidden doc-placeholder doc-unavailable">
+        <!-- 1. Container untuk Pesan Dokumentasi Belum Tersedia -->
+        <div id="doc-unavailable-message" class="hidden doc-placeholder doc-unavailable">
             <p class="text-red-700 font-bold text-lg">⚠️ Dokumentasi Belum Tersedia</p>
         </div>
         
-        <!-- 2. Container untuk Tampilan Dokumentasi (Hanya Gambar) --><div id="doc-preview-container" class="doc-preview-container hidden">
-            <!-- Gambar akan dimuat di sini --><img id="doc-image" src="" alt="Dokumentasi Acara/Sertifikat">
-            <!-- Pesan error/loading dapat ditambahkan di sini jika perlu, tapi kita buat minimalis --></div>
+        <!-- 2. Container untuk Tampilan Dokumentasi (Hanya Gambar) -->
+        <div id="doc-preview-container" class="doc-preview-container hidden">
+            <!-- Gambar akan dimuat di sini -->
+            <img id="doc-image" src="" alt="Dokumentasi Acara/Sertifikat">
+            <!-- Pesan error/loading dapat ditambahkan di sini jika perlu, tapi kita buat minimalis -->
+        </div>
 
     </div>
 </div>
@@ -612,11 +654,15 @@
         tablinks = document.getElementsByClassName("tab-button");
         for (i = 0; i < tablinks.length; i++) {
             tablinks[i].classList.remove("active");
+            // Menghapus kelas 'active' dari tombol yang sebelumnya aktif
+            if(tablinks[i] === evt.currentTarget) {
+                 evt.currentTarget.classList.add("active");
+            }
         }
-
+        
         document.getElementById(tabName).style.display = "block";
         document.getElementById(tabName).classList.add("active");
-        evt.currentTarget.classList.add("active");
+        evt.currentTarget.classList.add("active"); // Memastikan tombol yang baru diklik menjadi aktif
     }
 
     // Fungsi untuk menampilkan halaman detail dokumentasi
@@ -673,7 +719,23 @@
         // ** PERBAIKAN NAVIGASI: HISTORY BACK **
         // Saat tombol "Kembali" diklik, gunakan history.back(). 
         // Ini akan memicu event 'popstate' yang telah kita atur di bawah.
-        history.back();
+        // Jika history stack sudah berada di entry awal (tidak ada hash #detail),
+        // history.back() mungkin tidak berfungsi, jadi kita harus mengimplementasikan 
+        // logika fallback untuk memastikan tampilan utama muncul.
+        
+        const mainView = document.getElementById('main-cv-view');
+        const detailView = document.getElementById('documentation-detail-view');
+        
+        if (document.location.hash === '#detail') {
+             history.back();
+        } else {
+             // Fallback jika tombol back diklik saat tidak ada hash
+             detailView.classList.remove('page-view');
+             detailView.classList.add('hidden-view');
+             mainView.classList.remove('hidden-view');
+             mainView.classList.add('page-view');
+             window.scrollTo(0, 0);
+        }
     }
     
     // ** PERBAIKAN NAVIGASI: POPSTATE HANDLER **
@@ -682,9 +744,8 @@
         const mainView = document.getElementById('main-cv-view');
         const detailView = document.getElementById('documentation-detail-view');
         
-        // Cek apakah hash URL saat ini sudah hilang atau bukan lagi '#detail'
-        if (document.location.hash !== '#detail' || event.state?.view !== 'detail') {
-            // Jika kita kembali ke state sebelumnya (halaman utama)
+        // Cek apakah state saat ini tidak memiliki 'detail' view, artinya kita kembali ke CV utama
+        if (document.location.hash !== '#detail') {
             
             // Pastikan kita benar-benar di tampilan detail sebelum beralih untuk menghindari flicker
             if (!detailView.classList.contains('hidden-view')) {
